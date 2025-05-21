@@ -1,5 +1,7 @@
 # Installation
 ```bash
+git clone https://github.com/skynetcat/apktool-termux.git
+cd apktool-termux
 bash ./install-apktool.sh
 ```
 
