@@ -14,7 +14,7 @@ depInstall () {
     cmd="pkg"
   fi
 
-  $cmd install $1 -y
+  "$cmd" install "$1" -y
 }
 
 # Make sure wget is installed
@@ -28,7 +28,7 @@ if [[ ! -f "$PREFIX/bin/apktool.jar" ]]; then
 
   chmod +r ./apktool.jar
 
-  mv ./apktool.jar $PREFIX/bin/apktool.jar
+  mv ./apktool.jar "$PREFIX/bin/apktool.jar"
 fi
 
 if [[ ! -f "$PREFIX/bin/apktool" ]]; then
@@ -36,7 +36,7 @@ if [[ ! -f "$PREFIX/bin/apktool" ]]; then
 
   chmod +x ./apktool
 
-  mv ./apktool $PREFIX/bin/apktool
+  mv ./apktool "$PREFIX/bin/apktool"
 fi
 
 # Make sure Java is installed
