@@ -4,6 +4,24 @@
 
 Version=2.11.1
 
+# Refresh repositories
+pkg update
+
+depInstall () {
+  if command -v nala &>/dev/null; then
+    cmd="nala"
+  else
+    cmd="pkg"
+  fi
+
+  $cmd install $1 -y
+}
+
+# Make sure wget is installed
+if ! command -v wget &>/dev/null; then
+  depInstall wget
+fi
+
 # Check if components exist. If not, fetch them.
 if [[ ! -f "$PREFIX/bin/apktool.jar" ]]; then
   wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_${Version}.jar -O ./apktool.jar
@@ -21,14 +39,7 @@ if [[ ! -f "$PREFIX/bin/apktool" ]]; then
   mv ./apktool $PREFIX/bin/apktool
 fi
 
-# Install Java if not installed
+# Make sure Java is installed
 if ! command -v java &>/dev/null; then
-  # Use nala if it exists
-  if command -v nala &>/dev/null; then
-      nala update 
-      nala install openjdk-17 -y
-  else
-      pkg update 
-      pkg install openjdk-17 -y
-  fi
+  depInstall openjdk-17
 fi
