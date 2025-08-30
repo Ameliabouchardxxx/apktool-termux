@@ -5,7 +5,7 @@
 Version=2.12.0
 
 # Refresh repositories
-pkg update
+apt update
 
 depInstall () {
   if command -v nala &>/dev/null; then
