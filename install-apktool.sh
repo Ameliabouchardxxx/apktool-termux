@@ -2,7 +2,7 @@
 
 # Get latest version from https://bitbucket.org/iBotPeaches/apktool/downloads
 
-Version=2.11.1
+Version=2.12.0
 
 # Refresh repositories
 pkg update
